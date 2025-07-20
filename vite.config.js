@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import pugTransformer from 'vite-plugin-pug-transformer';
 
 export default defineConfig({
-  base: '/draganborn/',
+  base: '/',
   root: 'src',
   plugins: [pugTransformer()],
   build: {
