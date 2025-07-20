@@ -1,0 +1,176 @@
+doctype html
+html(lang="ru")  
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Каталог товаров - Название магазина
+    link(rel="stylesheet" href="./css/main.css")
+  body
+    .container
+      // Header Section
+      header.header
+        // Burger for mobile menu
+        button.header__burger(type="button")
+          img(src="./img/burger-btn.svg" alt="Меню")
+        .header__logo
+          img(src="./img/frame-370.svg" alt="Логотип")
+        nav.header__nav
+          a.header__nav-item(href="#") Продукты
+          a.header__nav-item(href="#") Цвета
+          a.header__nav-item(href="#") Вдохновение
+          a.header__nav-item(href="#") Советы
+          a.header__nav-item(href="#") Найти магазин
+        .header__contacts
+          .header__phone +7 (495) 221-77-69
+          button.header__callback Заказать звонок
+        .header__actions
+          button.header__action.header__action--search
+            img(src="./img/search0.svg" alt="Поиск")
+          button.header__action.header__action--profile
+            .header__profile-icon
+            img(src="./img/profile.svg" alt="Профиль")
+          button.header__action.header__action--wishlist
+            img(src="./img/heart0.svg" alt="Избранное")
+          button.header__action.header__action--cart
+            .header__cart-count 4
+
+
+      // Breadcrumbs
+      .breadcrumbs
+        ul.breadcrumbs__list
+          li.breadcrumbs__item
+            a.breadcrumbs__item-link(href="#") Главная
+          li.breadcrumbs__item
+            a.breadcrumbs__item-link(href="#") Продукты
+          li.breadcrumbs__item.breadcrumbs__item--current
+            span.breadcrumbs__item-link Краски
+
+      // Mobile header
+      .mobile-header
+        h1.mobile-header__title Краски
+
+      // Slider Section
+      .slider-section
+        // Swiper container
+        .swiper.swiper__container
+          .swiper-wrapper.swiper__wrapper
+            // Первый слайд
+            .swiper-slide.swiper__slide.swiper__slide--first
+              // Page Header
+              .swiper__text-header
+                h1.swiper__text-header__title Краски
+                p.swiper__text-header__description Идеально подходят для стен и других поверхностей. <br> Найди свой идеальный цвет!
+                //img.swiper__text-header__image(src="./img/rectangle-6450.webp" alt="Стрелка")
+
+            // Второй слайд 
+            .swiper-slide.swiper__slide.swiper__slide--second
+
+              // Page Header
+              .swiper__text-header
+                h1.swiper__text-header__title Краски
+                p.swiper__text-header__description Идеально подходят для стен и других поверхностей. <br> Найди свой идеальный цвет!
+
+            // Третий слайд 
+            .swiper-slide.swiper__slide.swiper__slide--third
+
+              // Page Header
+              .swiper__text-header
+                h1.swiper__text-header__title Краски
+                p.swiper__text-header__description Идеально подходят для стен и других поверхностей. <br> Найди свой идеальный цвет!
+
+            // Четвертый слайд 
+            .swiper-slide.swiper__slide.swiper__slide--fourth
+
+              // Page Header
+              .swiper__text-header
+                h1.swiper__text-header__title Краски
+                p.swiper__text-header__description Идеально подходят для стен и других поверхностей. <br> Найди свой идеальный цвет!
+
+            // Пятый слайд 
+            .swiper-slide.swiper__slide.swiper__slide--fifth
+
+              // Page Header
+              .swiper__text-header
+                h1.swiper__text-header__title Краски
+                p.swiper__text-header__description Идеально подходят для стен и других поверхностей. <br> Найди свой идеальный цвет!
+
+          // Pagination bullets
+          .swiper-pagination.swiper__pagination
+
+          // Navigation arrows
+          button.swiper-button-prev.swiper__button-prev
+          button.swiper-button-next.swiper__button-next
+
+      //Main Content
+      .main-content
+        // Filters Section
+        .filters
+          each value in ["Новинки", "Есть в наличии", "Контрактные", "Эксклюзивные", "Распродажа"]
+            .filters__switcher-container
+              label.filters__switcher.filters__switcher--default(for=value.replace(/\s+/g, '-'))
+                input(type="checkbox" id=value.replace(/\s+/g, '-') name="filters" value=value)
+                .filters__switcher--indicator
+                span.filters__switcher--label= value
+          
+
+        // Products Section
+        .products-section
+          // Controls
+          .controls
+            // Button for mobile to open filters modal
+            button.filters-open-btn(type="button") Фильтры
+            // Bottom-sheet Filters (mobile only)
+            #filters-modal--bottom.modal.modal--bottom
+              .modal__overlay
+              .modal__content
+                button.modal__close(type="button")
+                .filters--mobile
+                  each value in ["Новинки", "Есть в наличии", "Контрактные", "Эксклюзивные", "Распродажа"]
+                    .filters__switcher-container
+                      label.filters__switcher.filters__switcher--default(for="m-" + value.replace(/\s+/g, '-'))
+                        input(type="checkbox" id="m-" + value.replace(/\s+/g, '-') name="filters" value=value)
+                        .filters__switcher--indicator
+                        span.filters__switcher--label= value
+
+            .counter.controls__counter 412 товаров
+            .sorting.sorting--default
+              button.sorting__button#sort-button(type="button") Сортировка
+              .sorting__popup#sort-popup
+                button.sorting__option(data-value="expensive") Сначала дорогие
+                button.sorting__option(data-value="cheap") Сначала недорогие
+                button.sorting__option(data-value="popular") Сначала популярные
+                button.sorting__option(data-value="new") Сначала новые
+
+          // Products Grid
+          .products
+           
+        // Sort Popup Overlay
+        .sort-overlay#sort-overlay
+        
+        // Footer Section
+        footer.footer
+
+        // Modals
+        // Cart Modal (Sidebar)
+        #cart-modal.modal.modal--right
+          .modal__overlay
+          .modal__content
+            .modal__header
+              h2.modal__title Корзина
+              button.modal__close(type="button") ×
+            .cart-summary
+              span.cart-item-count 0 товаров
+              button.clear-cart очистить список
+            .cart-items
+            .modal__footer
+              .cart-total
+              button.confirm-btn(type="button") Оформить заказ
+
+        // Filters Modal (mobile)
+        #filters-modal.modal
+          .modal__overlay
+          .modal__content
+            button.modal__close ×
+            h2 Фильтры
+
+        

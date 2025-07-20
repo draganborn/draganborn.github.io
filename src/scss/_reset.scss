@@ -1,0 +1,28 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+menu,
+ol,
+ul {
+  list-style-type: none;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--background-color);
+  line-height: 1.4;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+}
+
