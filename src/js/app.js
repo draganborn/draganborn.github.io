@@ -113,7 +113,6 @@ function renderProducts(list) {
   if (counterEl) counterEl.textContent = `${list.length} товаров`;
 }
 
-
 function sortProducts(list, mode) {
   const sorted = [...list];
   switch (mode) {
@@ -281,8 +280,8 @@ function renderCart() {
 
     row.innerHTML = `
       <img src="/img/${product.img}" alt="${
-      product.name
-    }" class="cart-item__img" />
+        product.name
+      }" class="cart-item__img" />
       <div class="cart-item__info">
         <span class="products__item--name cart-item__name">${
           product.name
