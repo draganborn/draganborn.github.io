@@ -81,14 +81,19 @@ function renderProducts(list) {
 
   list.forEach(p => {
     const priceNumber = getPriceNumber(p.price);
+    const imgFile = p.img || 'default.jpg'; // если не указано — подставим дефолт
+
     const item = document.createElement('div');
     item.className = 'products__item products__item--default';
     item.innerHTML = `
       <div class="products__item--image-container">
         <div class="products__item--image-border">
-          <img class="products__item--image" src="/img/${p.img}" alt="${
-      p.name
-    }">
+          <img
+            class="products__item--image"
+            src="/img/${imgFile}"
+            alt="${p.name}"
+            onerror="this.src='/img/default.jpg'; this.onerror=null;"
+          >
         </div>
       </div>
       <div class="products__item--info">
@@ -97,15 +102,17 @@ function renderProducts(list) {
           'ru-RU'
         )} ₽</div>
         <button class="add-to-cart" data-id="${p.id}">
-          <img src="./img/plus0.svg" alt="Добавить в корзину">
+         +
         </button>
-      </div>`;
+      </div>
+    `;
 
     productsContainer.appendChild(item);
   });
 
   if (counterEl) counterEl.textContent = `${list.length} товаров`;
 }
+
 
 function sortProducts(list, mode) {
   const sorted = [...list];
