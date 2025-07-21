@@ -81,7 +81,7 @@ function renderProducts(list) {
 
   list.forEach(p => {
     const priceNumber = getPriceNumber(p.price);
-    const imgFile = p.img || 'default.jpg'; // если не указано — подставим дефолт
+    const imgFile = p.img || 'default.jpg';
 
     const item = document.createElement('div');
     item.className = 'products__item products__item--default';
